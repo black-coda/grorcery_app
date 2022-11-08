@@ -9,6 +9,9 @@ final darkTheme = ThemeData(
 );
 
 final darkThemed = ThemeData(
+  inputDecorationTheme: const InputDecorationTheme(
+    iconColor: Color(0xff23AA49),
+  ),
   appBarTheme: const AppBarTheme(
     backgroundColor: Color(0xff0D1F29),
   ),

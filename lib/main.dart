@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:grorcery_app_/views/UI/themes/splash.dart';
+import 'package:grorcery_app_/views/UI/splash.dart';
 import 'package:grorcery_app_/views/UI/themes/themes_.dart';
 
 void main() {

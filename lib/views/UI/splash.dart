@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+// import 'package:google_fonts/google_fonts.dart';
+
+import 'auth/login_ui.dart';
 
 class PageViewScreen extends StatefulWidget {
   const PageViewScreen({super.key});
@@ -16,11 +19,9 @@ class _PageViewScreenState extends State<PageViewScreen> {
     return Scaffold(
       body: PageView(
         controller: pageController,
-        children: [
-          const ScreenOne(),
-          Container(
-            color: Colors.yellow,
-          ),
+        children: const [
+          ScreenOne(),
+          LoginScreen(),
         ],
       ),
     );
@@ -82,11 +83,11 @@ class _ScreenOneState extends State<ScreenOne> {
             MaterialButton(
               onPressed: () {},
               minWidth: 190.0,
-              height: 53,
+              height: 43,
               padding: const EdgeInsets.all(16),
               color: Theme.of(context).colorScheme.primary,
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(100),
+                borderRadius: BorderRadius.circular(80),
               ),
               child: Text(
                 "Shop Now",
