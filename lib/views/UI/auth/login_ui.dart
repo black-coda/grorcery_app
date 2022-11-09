@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
 
@@ -45,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                   ),
                   const SizedBox(
-                    height: 64,
+                    height: 32,
                   ),
 
                   //form field
@@ -147,6 +148,9 @@ class _LoginScreenState extends State<LoginScreen> {
                                 ),
                               ),
                             ),
+                            const SizedBox(
+                              height: 50,
+                            ),
                           ],
                         ),
                       ],
@@ -161,3 +165,4 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
+

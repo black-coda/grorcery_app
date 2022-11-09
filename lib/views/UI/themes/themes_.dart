@@ -9,6 +9,7 @@ final darkTheme = ThemeData(
 );
 
 final darkThemed = ThemeData(
+  useMaterial3: true,
   inputDecorationTheme: const InputDecorationTheme(
     iconColor: Color(0xff23AA49),
   ),

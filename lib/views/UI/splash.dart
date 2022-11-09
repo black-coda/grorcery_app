@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:grorcery_app_/views/UI/auth/register_ui.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
 import 'auth/login_ui.dart';
+import 'pages/home_page.dart';
 
 class PageViewScreen extends StatefulWidget {
   const PageViewScreen({super.key});
@@ -22,6 +24,8 @@ class _PageViewScreenState extends State<PageViewScreen> {
         children: const [
           ScreenOne(),
           LoginScreen(),
+          RegisterScreen(),
+          HomeWidget(),
         ],
       ),
     );
