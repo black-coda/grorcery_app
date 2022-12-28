@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:grorcery_app_/views/UI/splash.dart';
+
 import 'package:grorcery_app_/views/UI/themes/themes_.dart';
+
+import 'views/UI/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +15,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      
       debugShowCheckedModeBanner: false,
       title: 'GreenVege',
       theme: darkThemed,

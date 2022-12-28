@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'custom_form.dart';
+
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({Key? key}) : super(key: key);
 
@@ -51,179 +53,49 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   padding: const EdgeInsets.all(20),
                   child: Column(
                     children: [
-                      TextFormField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          helperText: "Email must contain '@'",
-                          helperStyle: const TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.email_rounded,
-                          ),
-                          labelText: "Email",
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
+                      const CustomFormWidget(
+                        labelText: "email",
+                        helperText: 'email must contain @',
+                        labelBool: true,
                       ),
                       const SizedBox(
                         height: 28,
                       ),
-                      TextFormField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          helperStyle: const TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.person,
-                          ),
-                          labelText: "Firstname",
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
+                      const CustomFormWidget(
+                        labelText: "Full-name",
+                        labelBool: false,
                       ),
                       const SizedBox(
-                        height: 28,
+                        height: 20,
                       ),
-                      TextFormField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          helperStyle: const TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.person,
-                          ),
-                          labelText: "Lastname",
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
+                      const CustomFormWidget(
+                        labelText: "Password",
+                        labelBool: false,
+                        obscure: true,
                       ),
                       const SizedBox(
-                        height: 28,
+                        height: 20,
                       ),
-                      TextFormField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          // helperText: "",
-                          helperStyle: const TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.email_rounded,
-                          ),
-                          labelText: "Username",
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
-                        ),
+                      const CustomFormWidget(
+                        labelText: "Confirm Password",
+                        labelBool: false,
+                        obscure: true,
                       ),
                       const SizedBox(
-                        height: 28,
+                        height: 20,
                       ),
-                      TextFormField(
-                        style: const TextStyle(color: Colors.white),
-                        keyboardType: TextInputType.emailAddress,
-                        decoration: InputDecoration(
-                          helperStyle: const TextStyle(color: Colors.white),
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.email_rounded,
-                          ),
-                          labelText: "Password",
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
+                      MaterialButton(
+                        onPressed: () {},
+                        minWidth: 190.0,
+                        height: 43,
+                        padding: const EdgeInsets.all(16),
+                        color: Theme.of(context).colorScheme.primary,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(80),
                         ),
-                      ),
-                      const SizedBox(
-                        height: 28,
-                      ),
-                      TextFormField(
-                        style: const TextStyle(
-                          color: Colors.white,
-                        ),
-                        obscureText: true,
-                        keyboardType: TextInputType.text,
-                        decoration: InputDecoration(
-                          enabledBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          focusedBorder: OutlineInputBorder(
-                            borderSide: BorderSide(
-                              width: 0.9,
-                              color: Theme.of(context).colorScheme.primary,
-                            ),
-                          ),
-                          suffixIcon: const Icon(
-                            Icons.key_rounded,
-                          ),
-                          labelText: "Confirm Password",
-                          labelStyle: const TextStyle(
-                            color: Colors.white,
-                          ),
+                        child: Text(
+                          "Sign up",
+                          style: Theme.of(context).textTheme.headline2,
                         ),
                       ),
                       const SizedBox(
@@ -275,3 +147,5 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
+
+

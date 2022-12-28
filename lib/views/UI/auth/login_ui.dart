@@ -123,6 +123,20 @@ class _LoginScreenState extends State<LoginScreen> {
                         const SizedBox(
                           height: 40,
                         ),
+                        MaterialButton(
+                          onPressed: () {},
+                          minWidth: 190.0,
+                          height: 43,
+                          padding: const EdgeInsets.all(16),
+                          color: Theme.of(context).colorScheme.primary,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(80),
+                          ),
+                          child: Text(
+                            "Sign in",
+                            style: Theme.of(context).textTheme.headline2,
+                          ),
+                        ),
                         Row(
                           mainAxisSize: MainAxisSize.min,
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -165,4 +179,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
