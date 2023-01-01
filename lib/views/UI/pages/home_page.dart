@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import "dart:math" as math;
 
+import 'package:grorcery_app_/views/UI/pages/items.dart';
+
 class HomeWidget extends StatefulWidget {
   const HomeWidget({super.key});
 
@@ -13,27 +15,50 @@ class _HomeWidgetState extends State<HomeWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.symmetric(vertical: 0.0, horizontal: 8),
-            child: Column(
-              children: const [
-                MyAppBar(),
+        child: CustomScrollView(
+          slivers: <Widget>[
+            SliverPadding(
+              padding: const EdgeInsets.symmetric(
+                horizontal: 10.0,
+                vertical: 10.0,
+              ),
+              sliver: SliverToBoxAdapter(
+                child: Column(
+                  children: const [
+                    MyAppBar(),
 
-                // search bar
-                SingleSearchBar(),
+                    // search bar
+                    SingleSearchBar(),
 
-                SizedBox(height: 24),
+                    SizedBox(height: 24),
 
-                // Carousel card
-                CustomCardAds(),
-                //Category
-                CategoryWidget(),
-                //BestSelling
-                BestSellingWidget(),
-              ],
+                    // Carousel card
+                    CustomCardAds(),
+                    //Category
+                    CategoryWidget(),
+                    //BestSelling
+                    BestSellingWidget(),
+                  ],
+                ),
+              ),
             ),
-          ),
+            SliverGrid(
+              delegate:
+                  SliverChildBuilderDelegate((BuildContext context, index) {
+                if (index > 3) return null;
+                return Container(
+                  // height: 150,
+                  color: getRandomColor(),
+                );
+              }),
+              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                maxCrossAxisExtent: 300.0,
+                mainAxisSpacing: 10.0,
+                crossAxisSpacing: 10.0,
+                childAspectRatio: 0.8,
+              ),
+            ),
+          ],
         ),
       ),
     );
@@ -109,80 +134,6 @@ class BestSellingWidget extends StatelessWidget {
             const SizedBox(
               height: 10,
             ),
-            SizedBox(
-              height: MediaQuery.of(context).size.height / 3,
-              child: GridView.builder(
-                physics: const NeverScrollableScrollPhysics(),
-                gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  mainAxisSpacing: 5,
-                  crossAxisSpacing: 10,
-                  childAspectRatio: 0.78,
-                ),
-                itemCount: 2,
-                itemBuilder: (BuildContext context, int index) {
-                  return Container(
-                    width: 163,
-                    decoration: BoxDecoration(
-                      color: const Color(0xff1A3848),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 19.0, horizontal: 9.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          //Image For Vege
-                          Center(child: Image.asset("assets/ata.png")),
-                          const SizedBox(
-                            height: 35,
-                          ),
-                          //Name of vege
-                          const Text(
-                            "Bell pepper Red",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-
-                          //Row Price
-
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "1kg,  \$4",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  color: Color(
-                                    0xffFF324B,
-                                  ),
-                                ),
-                              ),
-                              GestureDetector(
-                                onTap: () {},
-                                child: CircleAvatar(
-                                  backgroundColor: Theme.of(context)
-                                      .appBarTheme
-                                      .backgroundColor,
-                                  child: Icon(
-                                    Icons.add,
-                                    color:
-                                        Theme.of(context).colorScheme.primary,
-                                  ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ),
           ],
         );
       },
@@ -196,7 +147,7 @@ class CategoryWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 145,
+      height: 150,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
@@ -238,7 +189,7 @@ class CategoryWidget extends StatelessWidget {
                     child: CircleAvatar(
                       backgroundColor: const Color(0xff1A3848),
                       radius: 30,
-                      child: Image.asset("assets/cheese.png"),
+                      child: Image.asset("assets/cheeseee.png"),
                     ),
                   ),
                   Padding(
@@ -255,6 +206,14 @@ class CategoryWidget extends StatelessWidget {
                       backgroundColor: const Color(0xff1A3848),
                       radius: 30,
                       child: Image.asset("assets/vege.png"),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: CircleAvatar(
+                      backgroundColor: const Color(0xff1A3848),
+                      radius: 30,
+                      child: Image.asset("assets/milk.png"),
                     ),
                   ),
                 ],
@@ -287,12 +246,15 @@ class CustomCardAds extends StatelessWidget {
         children: [
           Column(
             children: [
-              const Text("Christmas offer"),
+              const Text(
+                "Christmas offer",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
               const Text(
                 "Get 25%",
-                style: TextStyle(
-                  fontSize: 32,
-                ),
+                style: TextStyle(fontSize: 32, color: Colors.white),
               ),
               const SizedBox(
                 height: 12,
@@ -396,14 +358,16 @@ class _DropDownCustomState extends State<DropDownCustom> {
   @override
   Widget build(BuildContext context) {
     return DropdownButton<String>(
+      value: dropDownValue,
+      dropdownColor: Theme.of(context).scaffoldBackgroundColor,
       underline: const SizedBox(),
-      style: const TextStyle(
+      style: TextStyle(
         fontSize: 10,
-        color: Colors.white,
+        color: Theme.of(context).colorScheme.primary,
       ),
-      isDense: true,
-      menuMaxHeight: 42,
-      borderRadius: BorderRadius.circular(67),
+      // isDense: true,
+      // menuMaxHeight: 42,
+      borderRadius: BorderRadius.circular(10),
       icon: Icon(
         Icons.keyboard_arrow_down_sharp,
         color: Theme.of(context).colorScheme.primary,
@@ -415,7 +379,7 @@ class _DropDownCustomState extends State<DropDownCustom> {
           value: value,
           child: Text(
             value,
-            style: const TextStyle(fontSize: 30),
+            style: const TextStyle(),
           ),
         );
       }).toList(),
