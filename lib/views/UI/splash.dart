@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grorcery_app_/views/UI/auth/register_ui.dart';
+import 'package:grorcery_app_/views/UI/pages/item_details.dart';
 import 'package:grorcery_app_/views/UI/pages/items.dart';
 // import 'package:google_fonts/google_fonts.dart';
 
@@ -28,6 +29,7 @@ class _PageViewScreenState extends State<PageViewScreen> {
           RegisterScreen(),
           HomeWidget(),
           ItemGridList(),
+          ItemDetails(),
         ],
       ),
     );

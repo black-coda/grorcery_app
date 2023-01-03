@@ -13,9 +13,10 @@ class HomeWidget extends StatefulWidget {
 class _HomeWidgetState extends State<HomeWidget> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: SafeArea(
-        child: CustomScrollView(
+    return SafeArea(
+      maintainBottomViewPadding: true,
+      child: Scaffold(
+        body: CustomScrollView(
           slivers: <Widget>[
             SliverPadding(
               padding: const EdgeInsets.symmetric(
@@ -42,20 +43,82 @@ class _HomeWidgetState extends State<HomeWidget> {
                 ),
               ),
             ),
-            SliverGrid(
-              delegate:
-                  SliverChildBuilderDelegate((BuildContext context, index) {
-                if (index > 3) return null;
-                return Container(
-                  // height: 150,
-                  color: getRandomColor(),
-                );
-              }),
-              gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                maxCrossAxisExtent: 300.0,
-                mainAxisSpacing: 10.0,
-                crossAxisSpacing: 10.0,
-                childAspectRatio: 0.8,
+            SliverPadding(
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 10, vertical: 15.0),
+              sliver: SliverGrid(
+                delegate:
+                    SliverChildBuilderDelegate((BuildContext context, index) {
+                  // if (index > 3) return null;
+                  return Container(
+                    decoration: BoxDecoration(
+                      color: const Color(0xff1A3848),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        top: 19.0,
+                        right: 9.0,
+                        left: 9.0,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Center(child: Image.asset("assets/ata.png")),
+                          const SizedBox(
+                            height: 35,
+                          ),
+                          //Name of vege
+                          const Text(
+                            "Bell pepper Red",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+
+                          //Price Row
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              const Text(
+                                "1kg,  \$4",
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontSize: 13,
+                                  color: Color(
+                                    0xffFF324B,
+                                  ),
+                                ),
+                              ),
+                              GestureDetector(
+                                onTap: () {},
+                                child: CircleAvatar(
+                                  radius: 18,
+                                  backgroundColor: Theme.of(context)
+                                      .appBarTheme
+                                      .backgroundColor,
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 18,
+                                    color:
+                                        Theme.of(context).colorScheme.primary,
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                }, childCount: 6),
+                gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+                  maxCrossAxisExtent: 300.0,
+                  mainAxisSpacing: 10.0,
+                  crossAxisSpacing: 10.0,
+                  childAspectRatio: 0.8,
+                ),
               ),
             ),
           ],
@@ -109,34 +172,27 @@ class BestSellingWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(
-      builder: (BuildContext context, BoxConstraints constraints) {
-        return Column(
+    return Column(
+      children: [
+        const SizedBox(
+          height: 26,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const SizedBox(
-              height: 26,
+            Text(
+              "Best Selling 🔥",
+              style: Theme.of(context).textTheme.headline2,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  "Best Selling 🔥",
-                  style: Theme.of(context).textTheme.headline2,
-                ),
-                Text(
-                  "See all",
-                  style: TextStyle(
-                    color: Theme.of(context).colorScheme.primary,
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
+            Text(
+              "See all",
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+              ),
             ),
           ],
-        );
-      },
+        ),
+      ],
     );
   }
 }
@@ -332,7 +388,7 @@ class MyAppBar extends StatelessWidget {
             ],
           ),
           MaterialButton(
-            minWidth: 115,
+            minWidth: 100,
             onPressed: () {},
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(67),
@@ -379,7 +435,10 @@ class _DropDownCustomState extends State<DropDownCustom> {
           value: value,
           child: Text(
             value,
-            style: const TextStyle(),
+            style: const TextStyle(
+              fontSize: 14,
+              color: Colors.white,
+            ),
           ),
         );
       }).toList(),
