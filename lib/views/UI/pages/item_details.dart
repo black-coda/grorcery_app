@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:grorcery_app_/models/models.dart';
 
+import 'items.dart';
+
 class ItemDetails extends StatelessWidget {
   const ItemDetails({super.key});
 
@@ -95,60 +97,85 @@ class ItemDetails extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(
-            height: 20.0,
-          ),
+          // const SizedBox(
+          //   height: 20.0,
+          // ),
           SizedBox(
             height: 180,
             child: GridView.builder(
+              physics: const NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 24),
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 childAspectRatio: 2,
+                mainAxisExtent: 67.0,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16.0,
               ),
               itemCount: property.length,
               itemBuilder: (BuildContext context, int index) {
                 return Container(
-                  decoration:
-                      BoxDecoration(borderRadius: BorderRadius.circular(16)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      SizedBox(
-                        height: 30,
-                        child: Image.asset(
-                          property[index].imageUrl,
-                          fit: BoxFit.fitHeight,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    color: const Color(0xff172C38),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    child: Row(
+                      children: [
+                        SizedBox(
+                          height: 35,
+                          width: 35,
+                          child: Image.asset(property[index].imageUrl),
                         ),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            property[index].value,
-                            style: TextStyle(
-                              color: Theme.of(context).colorScheme.primary,
-                              fontWeight: FontWeight.bold,
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              property[index].value,
+                              style: TextStyle(
+                                color: Theme.of(context).colorScheme.primary,
+                                fontWeight: FontWeight.bold,
+                              ),
                             ),
-                          ),
-                          Text(
-                            property[index].category,
-                            style: const TextStyle(
-                              color: Color(0xff617986),
-                              fontSize: 12.8,
+                            Text(
+                              property[index].category,
+                              style: const TextStyle(
+                                color: Color(0xff617986),
+                                fontSize: 12,
+                              ),
                             ),
-                          ),
-                        ],
-                      )
-                    ],
+                          ],
+                        )
+                      ],
+                    ),
                   ),
                 );
               },
             ),
-          )
+          ),
+
+          SizedBox(
+            width: 342,
+            height: 53,
+            child: ElevatedButton(
+              onPressed: () {},
+              style: ElevatedButton.styleFrom(
+                padding: EdgeInsets.zero,
+                maximumSize: const Size(342, 53),
+                backgroundColor: Theme.of(context).colorScheme.primary,
+              ),
+              child: const Text(
+                "Add to Cart",
+                style:
+                    TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+              ),
+            ),
+          ),
         ],
       ),
     );
@@ -163,7 +190,7 @@ class CustomCircle extends StatelessWidget {
     return ClipPath(
       clipper: CustomClipPath(),
       child: Container(
-        height: MediaQuery.of(context).size.height / 2.2,
+        height: MediaQuery.of(context).size.height / 2.3,
         color: const Color(0xff172C38),
         child: Center(
           child: Image.asset("assets/2x/ginger.png"),
