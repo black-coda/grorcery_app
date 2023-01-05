@@ -32,12 +32,15 @@ class ItemGridList extends StatelessWidget {
                   child: const Icon(Icons.search_sharp),
                 )
               ],
-              leading: CircleAvatar(
-                backgroundColor: Theme.of(context).colorScheme.primary,
-                child: const Icon(
-                  Icons.arrow_back_ios,
-                  size: 16,
-                  // color: Colors.blueGrey,
+              leading: GestureDetector(
+                onTap: () => Navigator.of(context).pop(),
+                child: CircleAvatar(
+                  backgroundColor: Theme.of(context).colorScheme.primary,
+                  child: const Icon(
+                    Icons.arrow_back_ios,
+                    size: 16,
+                    // color: Colors.blueGrey,
+                  ),
                 ),
               ),
             ),

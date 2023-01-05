@@ -1,7 +1,6 @@
 name: grorcery_app_
 description: A new Flutter project.
 
-
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
@@ -31,14 +30,18 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  
+  flutter_native_splash: ^2.2.16
   google_fonts: ^3.0.1
 
+flutter_native_splash:
+  color: "#0D1F29"
+  background_image: "assets/logo.png"
+
 dev_dependencies:
+  flutter_launcher_icons: ^0.10.0
   flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.10.0
 flutter_icons:
   android: "launcher_icon"
   ios: true
@@ -75,7 +78,6 @@ flutter:
     - family: Aloe
       fonts:
         - asset: assets/fonts/aloevera/Aloevera-OVoWO.ttf
-        
 
     - family: Jet
       fonts:

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grorcery_app_/routes/routes.dart';
 
 import 'custom_form.dart';
 
@@ -117,6 +118,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           GestureDetector(
                             onTap: () {
                               //TODO: To implement Navigate to login
+
+                              Navigator.of(context).pushNamed(RouteManager.loginPage);
                             },
                             child: Text(
                               "Register Now",
@@ -147,5 +150,3 @@ class _RegisterScreenState extends State<RegisterScreen> {
     );
   }
 }
-
-

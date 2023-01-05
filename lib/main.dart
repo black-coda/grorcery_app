@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:grorcery_app_/routes/routes.dart';
 import 'package:grorcery_app_/views/UI/themes/themes_.dart';
-import 'views/UI/splash.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,21 +16,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'GreenVege',
       theme: darkThemed,
-      home: const MainPage(),
+      initialRoute: RouteManager.loginPage,
+      onGenerateRoute: RouteManager.generateRoute,
     );
-  }
-}
-
-class MainPage extends StatefulWidget {
-  const MainPage({super.key});
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  @override
-  Widget build(BuildContext context) {
-    return const PageViewScreen();
   }
 }

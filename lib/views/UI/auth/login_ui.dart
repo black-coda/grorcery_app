@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grorcery_app_/routes/routes.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -124,7 +125,12 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 40,
                         ),
                         MaterialButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            //TODO: Navigate To homePage
+
+                            Navigator.of(context)
+                                .pushNamed(RouteManager.homePage);
+                          },
                           minWidth: 190.0,
                           height: 43,
                           padding: const EdgeInsets.all(16),
@@ -153,6 +159,9 @@ class _LoginScreenState extends State<LoginScreen> {
                             GestureDetector(
                               onTap: () {
                                 //TODO: To implement Navigate to register
+
+                                Navigator.of(context)
+                                    .pushNamed(RouteManager.signUpPage);
                               },
                               child: Text(
                                 "Register Now",

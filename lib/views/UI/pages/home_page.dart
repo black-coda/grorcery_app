@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grorcery_app_/routes/routes.dart';
 import "dart:math" as math;
 
 import 'package:grorcery_app_/views/UI/pages/items.dart';
@@ -184,10 +185,14 @@ class BestSellingWidget extends StatelessWidget {
               "Best Selling 🔥",
               style: Theme.of(context).textTheme.headline2,
             ),
-            Text(
-              "See all",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.primary,
+            GestureDetector(
+              onTap: () =>
+                  Navigator.of(context).pushNamed(RouteManager.listPage),
+              child: Text(
+                "See all",
+                style: TextStyle(
+                  color: Theme.of(context).colorScheme.primary,
+                ),
               ),
             ),
           ],
