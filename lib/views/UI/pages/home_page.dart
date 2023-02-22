@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:grorcery_app_/routes/routes.dart';
+import 'package:grorcery_app_/views/UI/pages/item_details.dart';
 import "dart:math" as math;
 
 import 'package:grorcery_app_/views/UI/pages/items.dart';
@@ -51,50 +52,52 @@ class _HomeWidgetState extends State<HomeWidget> {
                 delegate:
                     SliverChildBuilderDelegate((BuildContext context, index) {
                   // if (index > 3) return null;
-                  return Container(
-                    decoration: BoxDecoration(
-                      color: const Color(0xff1A3848),
-                      borderRadius: BorderRadius.circular(10),
-                    ),
-                    child: Padding(
-                      padding: const EdgeInsets.only(
-                        top: 19.0,
-                        right: 9.0,
-                        left: 9.0,
+                  return GestureDetector(
+                    onTap: () => Navigator.of(context)
+                        .pushNamed(RouteManager.detailPage),
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xff1A3848),
+                        borderRadius: BorderRadius.circular(10),
                       ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Center(child: Image.asset("assets/ata.png")),
-                          const SizedBox(
-                            height: 35,
-                          ),
-                          //Name of vege
-                          const Text(
-                            "Bell pepper Red",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.bold,
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                          top: 19.0,
+                          right: 9.0,
+                          left: 9.0,
+                          // bottom: 10,
+                        ),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Center(child: Image.asset("assets/ata.png")),
+                            const SizedBox(
+                              height: 35,
                             ),
-                          ),
+                            //Name of vege
+                            const Text(
+                              "Bell pepper Red",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
 
-                          //Price Row
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              const Text(
-                                "1kg,  \$4",
-                                style: TextStyle(
-                                  fontWeight: FontWeight.w800,
-                                  fontSize: 13,
-                                  color: Color(
-                                    0xffFF324B,
+                            //Price Row
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                const Text(
+                                  "1kg,  \$4",
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w800,
+                                    fontSize: 13,
+                                    color: Color(
+                                      0xffFF324B,
+                                    ),
                                   ),
                                 ),
-                              ),
-                              GestureDetector(
-                                onTap: () {},
-                                child: CircleAvatar(
+                                CircleAvatar(
                                   radius: 18,
                                   backgroundColor: Theme.of(context)
                                       .appBarTheme
@@ -105,11 +108,11 @@ class _HomeWidgetState extends State<HomeWidget> {
                                     color:
                                         Theme.of(context).colorScheme.primary,
                                   ),
-                                ),
-                              )
-                            ],
-                          )
-                        ],
+                                )
+                              ],
+                            )
+                          ],
+                        ),
                       ),
                     ),
                   );
@@ -118,7 +121,7 @@ class _HomeWidgetState extends State<HomeWidget> {
                   maxCrossAxisExtent: 300.0,
                   mainAxisSpacing: 10.0,
                   crossAxisSpacing: 10.0,
-                  childAspectRatio: 0.8,
+                  childAspectRatio: 0.75,
                 ),
               ),
             ),
