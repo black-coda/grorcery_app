@@ -1,5 +1,5 @@
 <h1 align="center">
-  ![Alt text](https://github.com/black-coda/grocery_app/blob/main/assets/spalsh.png?raw=true)
+    <img src="assets/spalsh.png" alt="Grocery App Logo" width="100px">
   <br>
   Grocery App: Shop with Style 🛒✨
 </h1>
