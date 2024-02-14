@@ -18,6 +18,7 @@ class MyApp extends StatelessWidget {
       theme: darkThemed,
       initialRoute: RouteManager.loginPage,
       onGenerateRoute: RouteManager.generateRoute,
+
     );
   }
 }
